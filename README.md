@@ -83,7 +83,9 @@ The full list of parameters:
 - *line_height*:
     height of each line; shrink to move lines closer together (units are SVG px)
 - *font_family*:
-    CSS font family to use; see https://www.w3.org/Style/Examples/007/fonts.en.html
+    CSS font family; see https://www.w3.org/Style/Examples/007/fonts.en.html
+- *font_weight*:
+    CSS font weight; see https://www.w3.org/Style/Examples/007/fonts.en.html
 
 
 ## Printing
