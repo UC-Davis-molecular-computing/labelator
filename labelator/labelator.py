@@ -100,10 +100,10 @@ def write_labels(
     return drawing
 
 
-multiplier = 51.325
-x_offset = 90.5
-y_offset = 72.5
-radius = 19.25
+multiplier = 49.16
+x_offset = 102
+y_offset = 94.5
+radius = 19
 
 
 def x_pixels_of(col: int) -> float:
@@ -132,7 +132,9 @@ def make_label(
 
     if show_circles:
         circle = draw.Circle(cx=x_px, cy=y_px, r=radius,
-                             fill='none', stroke_width=0.4, stroke='black')
+                             fill='none',
+                             stroke_width=1.33,
+                             stroke='black')
         drawing.append(circle)
 
     lines = label.split('\n')
