@@ -3,8 +3,8 @@ import itertools
 from typing import List
 import drawSvg as draw
 
-a4_width_px = 595
-a4_height_px = 842
+a4_width_px = 794
+a4_height_px = 1123
 num_rows = 20
 num_cols = 13
 
@@ -13,7 +13,7 @@ def write_labels(
         filename: str,
         labels: List[str],
         show_circles: bool = True,
-        font_size: float = 7.0,
+        font_size: float = 8.0,
         dx_text: float = 0.0,
         dy_text: float = 0.0,
         line_height: float = 1.0,
@@ -76,18 +76,18 @@ def write_labels(
     return drawing
 
 
-x_multiplier = 38.455
-y_multiplier = 38.485
-x_offset = 67.85
-y_offset = 54.35
+multiplier = 51.325
+x_offset = 90.5
+y_offset = 72.5
+radius = 19.25
 
 
 def x_pixels_of(col: int) -> float:
-    return x_offset + col * x_multiplier
+    return x_offset + col * multiplier
 
 
 def y_pixels_of(row: int) -> float:
-    return y_offset + (num_rows - row - 1) * y_multiplier
+    return y_offset + (num_rows - row - 1) * multiplier
 
 
 def make_label(
@@ -105,7 +105,6 @@ def make_label(
     y_px = y_pixels_of(row)
 
     if show_circles:
-        radius = 14.45
         circle = draw.Circle(cx=x_px, cy=y_px, r=radius,
                              fill='none', stroke_width=0.4, stroke='black')
         drawing.append(circle)
@@ -113,7 +112,7 @@ def make_label(
     lines = label.split('\n')
     num_lines = len(lines)
     dy_multiplier = -3.65 * (font_size / 7.0)
-    dy_text_line_height = (1.0 - line_height) * 6
+    dy_text_line_height = (1.0 - line_height) * 4 * (num_lines - 1)
     text = draw.Text(
         label,
         fontSize=font_size,
