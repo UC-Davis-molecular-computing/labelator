@@ -80,3 +80,5 @@ The full list of parameters:
     amount to adjust y position of text within circle (units are SVG px)
 - *line_height*:
     height of each line; shrink to move lines closer together (units are SVG px)
+- *font_family*:
+    CSS font family to use; see https://www.w3.org/Style/Examples/007/fonts.en.html

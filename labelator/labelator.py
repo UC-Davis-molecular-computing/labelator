@@ -17,6 +17,7 @@ def write_labels(
         dx_text: float = 0.0,
         dy_text: float = 0.0,
         line_height: float = 1.0,
+        font_family: str = 'Helvetica',
 ) -> draw.Drawing:
     """
     Writes a file named `filename` with labels given in list `labels`.
@@ -38,6 +39,8 @@ def write_labels(
         amount to adjust y position of text within circle (units are SVG px)
     :param line_height:
         height of each line; shrink to move lines closer together (units are SVG px)
+    :param font_family:
+        CSS font family; see https://www.w3.org/Style/Examples/007/fonts.en.html
     :return:
         the ``drawSvg.Drawing`` object used to draw the circles and text
         The object ``drawing`` can be displayed in a Jupyter notebook by letting
@@ -56,7 +59,7 @@ def write_labels(
         make_label(drawing, label, row, col,
                    font_size=font_size, show_circles=show_circles,
                    dx_text=dx_text, dy_text=dy_text,
-                   line_height=line_height)
+                   line_height=line_height, font_family=font_family)
 
     if filename.lower().endswith('.pdf'):
         save_as_pdf(filename, drawing)
@@ -100,6 +103,7 @@ def make_label(
         dx_text: float,
         dy_text: float,
         line_height: float,
+        font_family: str,
 ) -> None:
     x_px = x_pixels_of(col)
     y_px = y_pixels_of(row)
@@ -119,9 +123,11 @@ def make_label(
         x=x_px, y=y_px,
         dx=dx_text,
         dy=(num_lines - 1) * dy_multiplier + dy_text + dy_text_line_height,
+        # center=True,
         text_anchor='middle',
         dominant_baseline='middle',
         lineHeight=line_height,
+        font_family=font_family,
     )
     drawing.append(text)
 
@@ -141,18 +147,3 @@ def save_as_pdf(filename: str, drawing: draw.Drawing) -> None:
     os.remove(svg_filename)
 
 
-if __name__ == '__main__':
-    count = 0
-    # labels = list('abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()')
-    # labels = ['abc'] * num_rows * num_cols
-    labels = []
-    for row in range(num_rows):
-        for col in range(num_cols):
-            if count < 39:
-                labels.append(f'label\nrow = {row}\ncol={col}')
-            count += 1
-    #         labels.append(f'label\nrow = {row} col={col}')
-    #         labels.append(f'label')
-    drawing = write_labels('labels.pdf', labels, font_size=6.0)
-    drawing.rasterize()
-# drawing
