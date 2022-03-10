@@ -25,6 +25,7 @@ This produces a PDF file labels.pdf with 260 circles, most of which are empty, b
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Printing](#printing)
 
 ## Installation
 
@@ -82,3 +83,12 @@ The full list of parameters:
     height of each line; shrink to move lines closer together (units are SVG px)
 - *font_family*:
     CSS font family to use; see https://www.w3.org/Style/Examples/007/fonts.en.html
+
+
+## Printing
+
+Printing can be finicky. Choose A4 paper, and be sure to select "Fit", *not* "Actual Size". (Strangely, this better matches the PDF appearance.)
+
+For example, in Adobe Reader:
+
+![](images/print_screenshot.png)
