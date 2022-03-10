@@ -1,3 +1,21 @@
+"""
+This is a Python package for creating PDF documents that can be printed onto circular sticky labels, this particular brand:
+https://www.flexilabels.co.uk/a4-sheet-round-labels/260-labels-per-a4-sheet-10-mm-diameter
+
+To use, give a list of labels (strings) to the function `write_labels`:
+
+```python
+from labelator import write_labels
+
+labels = [
+    '10 nM\nsample1\n22-03-09',
+    '10 nM\nsample2\n22-03-09',
+    '20 nM\nsample3\n22-03-09',
+]
+write_labels('labels.pdf', labels)
+```
+"""
+
 import os
 import itertools
 from typing import List
@@ -150,5 +168,3 @@ def save_as_pdf(filename: str, drawing: draw.Drawing) -> None:
     drawing.saveSvg(svg_filename)
     cairosvg.svg2pdf(url=svg_filename, write_to=filename)
     os.remove(svg_filename)
-
-

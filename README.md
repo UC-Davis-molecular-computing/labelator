@@ -1,6 +1,7 @@
 # labelator Python package
 
-This is a Python package for creating PDF documents that can be printed onto circular sticky labels that can be stuck to test tubes. [TODO: look up brand of label paper]
+This is a Python package for creating PDF documents that can be printed onto circular sticky labels, this particular brand:
+https://www.flexilabels.co.uk/a4-sheet-round-labels/260-labels-per-a4-sheet-10-mm-diameter
 
 To use, give a list of labels (strings) to the function `write_labels`:
 
@@ -17,7 +18,7 @@ write_labels('labels.pdf', labels)
 
 This produces a PDF file labels.pdf with 260 circles, most of which are empty, but the first three look like this:
 
-![](images/three-labels.png)
+![](images/three_labels.png)
 
 
 
@@ -87,8 +88,17 @@ The full list of parameters:
 
 ## Printing
 
-Printing can be finicky. Choose A4 paper, and be sure to select "Fit", *not* "Actual Size". (Strangely, this better matches the PDF appearance.)
+The PDF produced is intended to match the label positions in this template: https://www.flexilabels.co.uk/uploads/product-files/0-260-labels-per-a4-sheet-10-mm-diameter-flexi-labels-template.pdf
+
+Printing can be finicky. 
+
+1. Choose **A4 paper**.
+2. Select "Actual Size", *not* "Fit" or any other scale.
 
 For example, in Adobe Reader:
 
-![](images/print_screenshot.png)
+![](images/print_screenshot_adobe_reader.png)
+
+In Sumatra PDF viewer, this is on the advanced tab:
+
+![](images/print_screenshot_sumatra.png)
