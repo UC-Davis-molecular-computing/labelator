@@ -18,6 +18,7 @@ def write_labels(
         dy_text: float = 0.0,
         line_height: float = 1.0,
         font_family: str = 'Helvetica',
+        font_weight: str = 'normal',
 ) -> draw.Drawing:
     """
     Writes a file named `filename` with labels given in list `labels`.
@@ -41,6 +42,8 @@ def write_labels(
         height of each line; shrink to move lines closer together (units are SVG px)
     :param font_family:
         CSS font family; see https://www.w3.org/Style/Examples/007/fonts.en.html
+    :param font_weight:
+        CSS font weight; see https://www.w3.org/Style/Examples/007/fonts.en.html
     :return:
         the ``drawSvg.Drawing`` object used to draw the circles and text
         The object ``drawing`` can be displayed in a Jupyter notebook by letting
@@ -59,7 +62,7 @@ def write_labels(
         make_label(drawing, label, row, col,
                    font_size=font_size, show_circles=show_circles,
                    dx_text=dx_text, dy_text=dy_text,
-                   line_height=line_height, font_family=font_family)
+                   line_height=line_height, font_family=font_family, font_weight=font_weight)
 
     if filename.lower().endswith('.pdf'):
         save_as_pdf(filename, drawing)
@@ -104,6 +107,7 @@ def make_label(
         dy_text: float,
         line_height: float,
         font_family: str,
+        font_weight: str,
 ) -> None:
     x_px = x_pixels_of(col)
     y_px = y_pixels_of(row)
@@ -128,6 +132,7 @@ def make_label(
         dominant_baseline='middle',
         lineHeight=line_height,
         font_family=font_family,
+        font_weight=font_weight,
     )
     drawing.append(text)
 
