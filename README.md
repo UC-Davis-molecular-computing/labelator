@@ -75,17 +75,29 @@ The full list of parameters:
     Useful for ensuring label text will fit in the sticker, but typically turned off
     before printing the labels.
 - *font_size*:
-    font size (units are SVG px)
-- *dx_text*:
-    amount to adjust x position of text within circle (units are SVG px)
-- *dy_text*:
-    amount to adjust y position of text within circle (units are SVG px)
+    font size 
+    (units are SVG px)
+- *dx_text_em*:
+    amount to adjust x position of text within circle 
+    (units are SVG em)
+- *dy_text_em*:
+    amount to adjust y position of text within circle 
+    (units are SVG em)
 - *line_height*:
-    height of each line; shrink to move lines closer together (units are SVG px)
+    height of each line; shrink to move lines closer together 
+    (units are percentage of standard line height; 1.0 is standard)
 - *font_family*:
     CSS font family; see https://www.w3.org/Style/Examples/007/fonts.en.html
 - *font_weight*:
     CSS font weight; see https://www.w3.org/Style/Examples/007/fonts.en.html
+- *circle_stroke_width*:
+    stroke width of border of circle (if *show_circles* is True)
+- *order_by*:
+    If *labels* is a 1D list of strings, then this indicates whether to go in row-major order
+    ("row") or column-major order ("col").
+- *params*:
+    *Parameters* object describing adjustment values needed to adapt to specific label paper
+    (see labelator.py source code for description of Parameters object)
 
 
 ## Printing
