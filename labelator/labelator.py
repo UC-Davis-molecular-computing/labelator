@@ -92,8 +92,8 @@ def write_labels(
         labels: Union[List[str], List[List[str]]],
         show_circles: bool = True,
         font_size: Optional[float] = None,
-        dx_text: float = 0.0,
-        dy_text: float = 0.0,
+        dx_text_em: float = 0.0,
+        dy_text_em: float = 0.0,
         line_height: float = 1.0,
         font_family: str = 'Helvetica',
         font_weight: str = 'normal',
@@ -115,10 +115,12 @@ def write_labels(
         before printing the labels.
     :param font_size:
         font size (units are SVG px). If not specified, uses `params.default_font_size`.
-    :param dx_text:
-        amount to adjust x position of text within circle (units are SVG px)
-    :param dy_text:
-        amount to adjust y position of text within circle (units are SVG px)
+    :param dx_text_em:
+        amount to adjust x position of text within circle
+        (units are SVG em)
+    :param dy_text_em:
+        amount to adjust y position of text within circle
+        (units are SVG em)
     :param line_height:
         height of each line; shrink to move lines closer together (units are SVG px)
     :param font_family:
@@ -151,7 +153,7 @@ def write_labels(
         if label.strip() != '':
             make_label(drawing, label, row, col,
                        font_size=font_size, show_circles=show_circles,
-                       dx_text=dx_text, dy_text=dy_text,
+                       dx_text_em=dx_text_em, dy_text_em=dy_text_em,
                        line_height=line_height, font_family=font_family, font_weight=font_weight,
                        circle_stroke_width=circle_stroke_width, params=params)
 
@@ -271,8 +273,8 @@ def make_label(
         col: int,
         font_size: float,
         show_circles: bool,
-        dx_text: float,
-        dy_text: float,
+        dx_text_em: float,
+        dy_text_em: float,
         line_height: float,
         font_family: str,
         font_weight: str,
@@ -294,12 +296,12 @@ def make_label(
         #                             sy=y_px, ey=y_px, stroke='black'))
 
     num_lines = len(label.split('\n'))
-    dy = f'-{((num_lines - 1) / 2) * line_height}em'
+    dy = f'{dy_text_em - ((num_lines - 1) / 2) * line_height}em'
     text = drawSvg.Text(
         label,
         fontSize=font_size,
         x=x_px, y=y_px,
-        dx=dx_text,
+        dx=f'{dx_text_em}em',
         dy=dy,
         text_anchor='middle',
         dominant_baseline='middle',
