@@ -107,7 +107,14 @@ def write_labels(
     :param filename:
         name of file to write; must end in .pdf, .svg, or .png
     :param labels:
-        list of labels (strings) to write. Labels can have newlines; the whole multiline string
+        Description of labels (strings) to write.
+        Can be in one of three formats:
+        1. dict mapping (row,col) in pairs to labels,
+        2. 2D list of strings,
+        3. 1D list of strings.
+        If a 1D list, it will be converted to a 2D list in either row-major or column-major
+        order, depending on the value of the parameter `order_by`.
+        Labels can have newlines; the whole multiline string
         will end up approximately centered in the circle.
     :param show_circles:
         whether to draw a circle around each label reprenseting the sticker boundary.

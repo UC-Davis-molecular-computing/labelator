@@ -20,6 +20,8 @@ This produces a PDF file labels.pdf with 260 circles, most of which are empty, b
 
 ![](images/three_labels.png)
 
+One can also specify the `labels` parameter as a 2D list or a dict; see [Usage](#usage) below.
+
 
 
 ## Table of contents
@@ -68,8 +70,17 @@ The full list of parameters:
 - *filename*: 
     name of file to write; must end in .pdf, .svg, or .png
 - *labels*:
-    list of labels (strings) to write. Labels can have newlines; the whole multiline string
-        will end up approximately centered in the circle.
+    Description of labels (strings) to write.
+    Can be in one of three formats:
+    
+    - dict mapping (row,col) in pairs to labels,
+    - 2D list of strings,
+    - 1D list of strings.
+    
+    If a 1D list, it will be converted to a 2D list in either row-major or column-major
+    order, depending on the value of the parameter `order_by`.
+    Labels can have newlines; the whole multiline string
+    will end up approximately centered in the circle.
 - *show_circles*:
     whether to draw a circle around each label reprenseting the sticker boundary.
     Useful for ensuring label text will fit in the sticker, but typically turned off
