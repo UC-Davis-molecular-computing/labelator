@@ -109,7 +109,7 @@ def write_labels(
     :param labels:
         Description of labels (strings) to write.
         Can be in one of three formats:
-        1. dict mapping (row,col) in pairs to labels,
+        1. dict mapping (row,col) integer pairs to labels,
         2. 2D list of strings,
         3. 1D list of strings.
         If a 1D list, it will be converted to a 2D list in either row-major or column-major

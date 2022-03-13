@@ -73,7 +73,7 @@ The full list of parameters:
     Description of labels (strings) to write.
     Can be in one of three formats:
     
-    - dict mapping (row,col) in pairs to labels,
+    - dict mapping (row,col) integer pairs to labels,
     - 2D list of strings,
     - 1D list of strings.
     
