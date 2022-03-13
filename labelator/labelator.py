@@ -294,15 +294,13 @@ def make_label(
         #                             sy=y_px, ey=y_px, stroke='black'))
 
     num_lines = len(label.split('\n'))
-    # dy_multiplier = -3.65 * (font_size / params.default_font_size)
-    dy_multiplier = -4 * (font_size / params.default_font_size)
-    dy_text_line_height = (1.0 - line_height) * 4 * (num_lines - 1)
+    dy = f'-{((num_lines - 1) / 2) * line_height}em'
     text = drawSvg.Text(
         label,
         fontSize=font_size,
         x=x_px, y=y_px,
         dx=dx_text,
-        dy=(num_lines - 1) * dy_multiplier + dy_text + dy_text_line_height,
+        dy=dy,
         text_anchor='middle',
         dominant_baseline='middle',
         lineHeight=line_height,
@@ -325,7 +323,6 @@ def save_as_pdf(filename: str, drawing: drawSvg.Drawing) -> None:
     drawing.saveSvg(svg_filename)
     cairosvg.svg2pdf(url=svg_filename, write_to=filename)
     os.remove(svg_filename)
-
 
 # def _test():
 #     num_rows = 20
