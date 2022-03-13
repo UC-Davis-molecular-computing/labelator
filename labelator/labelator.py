@@ -122,7 +122,8 @@ def write_labels(
         amount to adjust y position of text within circle
         (units are SVG em)
     :param line_height:
-        height of each line; shrink to move lines closer together (units are SVG px)
+        height of each line; shrink to move lines closer together
+        (units are percentage of standard line height; 1.0 is standard)
     :param font_family:
         CSS font family; see https://www.w3.org/Style/Examples/007/fonts.en.html
     :param font_weight:
@@ -131,7 +132,7 @@ def write_labels(
         stroke width of border of circle (if `show_circles` is True)
     :param order_by:
         If `labels` is a 1D list of strings, then this indicates whether to go in row-major order
-        ("row") or column-major order ("col).
+        ("row") or column-major order ("col").
     :param params:
         :ref:`Parameters` object describing adjustment values needed to adapt to specific label paper
     :return:
