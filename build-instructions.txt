@@ -6,4 +6,4 @@ pip install --upgrade build twine
 python -m build
 
 # then upload to pypi via
-twine upload --repository --skip-existing testpypi dist/*
+twine upload --repository testpypi --skip-existing dist\*
