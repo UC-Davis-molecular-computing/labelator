@@ -2,8 +2,8 @@
 This is a Python package for creating PDF documents that can be printed onto circular sticky labels,
 these particular brands on A4 paper with 260 labels (20 rows and 13 columns):
 
-https://www.flexilabels.co.uk/a4-sheet-round-labels/260-labels-per-a4-sheet-10-mm-diameter
 https://uk.onlinelabels.com/products/eu30059
+https://www.flexilabels.co.uk/a4-sheet-round-labels/260-labels-per-a4-sheet-10-mm-diameter
 
 To use, give a list of labels (strings) to the function `write_labels`:
 
@@ -85,13 +85,15 @@ flexilabels_260_per_a4_sheet = Parameters(
 )
 """
 Parameters for this label paper:
+
+https://uk.onlinelabels.com/products/eu30059
 https://www.flexilabels.co.uk/a4-sheet-round-labels/260-labels-per-a4-sheet-10-mm-diameter
 """
 
 
 def write_labels(
         filename: str,
-        labels: Union[List[str], List[List[str]]],
+        labels: Union[List[str], List[List[str]], Dict[Tuple[int, int], str]],
         show_circles: bool = True,
         font_size: Optional[float] = None,
         dx_text_em: float = 0.0,

@@ -116,6 +116,36 @@ The full list of parameters:
     *Parameters* object describing adjustment values needed to adapt to specific label paper
     (see labelator.py source code for description of Parameters object)
 
+Here is a call to `write_labels` with the default parameters specified (also some examples of the three formats for `labels`; note the first is a different specification than the next two):
+
+```python
+labels = ['a', 'b', 'c']
+labels = [
+    ['a', 'b', 'c'], 
+    ['d', 'e'], 
+    ['f', 'g', 'h', 'i'],
+]
+labels = {
+    (0, 0): 'a', (0, 1): 'b', (0, 2): 'c',
+    (1, 0): 'd', (1, 1): 'e',
+    (2, 0): 'f', (2, 1): 'g', (2, 2): 'h', (2, 3): 'i',
+}
+write_labels(
+    filename='labels.pdf',
+    labels=labels,
+    show_circles=True,
+    font_size=8.0,
+    dx_text_em=0.0,
+    dy_text_em=0.0,
+    line_height=1.0,
+    font_family='Helvetica',
+    font_weight='normal',
+    circle_stroke_width=1.33,
+    order_by='row',
+    params=flexilabels_260_per_a4_sheet,
+)
+```
+
 
 ## Printing
 
