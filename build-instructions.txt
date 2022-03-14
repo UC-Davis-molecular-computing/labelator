@@ -1,0 +1,9 @@
+# https://lynn-kwong.medium.com/how-to-configure-build-and-deploy-your-python-projects-to-pypi-dac40803fdf
+# install build and twine via 
+pip install --upgrade build twine
+
+# then build via (TURN OFF Dropbox or this can fail due to permissions errors)
+python -m build
+
+# then upload to pypi via
+twine upload --repository testpypi dist/*

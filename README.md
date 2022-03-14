@@ -18,7 +18,7 @@ write_labels('labels.pdf', labels)
 
 This produces a PDF file labels.pdf with 260 circles, most of which are empty, but the first three look like this:
 
-![](images/three_labels.png)
+![](https://github.com/UC-Davis-molecular-computing/labelator/images/three_labels.png)
 
 One can also specify the `labels` parameter as a 2D list or a dict; see [Usage](#usage) below.
 
@@ -122,8 +122,8 @@ Printing can be finicky.
 
 For example, in Adobe Reader:
 
-![](images/print_screenshot_adobe_reader.png)
+![](https://github.com/UC-Davis-molecular-computing/labelator/images/print_screenshot_adobe_reader.png)
 
 In Sumatra PDF viewer, this is on the advanced tab:
 
-![](images/print_screenshot_sumatra.png)
+![](https://github.com/UC-Davis-molecular-computing/labelator/images/print_screenshot_sumatra.png)
