@@ -9,9 +9,9 @@ To use, give a list of labels (strings) to the function `write_labels`:
 from labelator import write_labels
 
 labels = [
-    '10 nM\nsample1\n22-03-09',
-    '10 nM\nsample2\n22-03-09',
-    '20 nM\nsample3\n22-03-09',
+    '10 nM\nsample1\n22/03/09',
+    '10 nM\nsample2\n22/03/09',
+    '20 nM\nsample3\n22/03/09',
 ]
 write_labels('labels.pdf', labels)
 ```
