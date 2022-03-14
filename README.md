@@ -116,10 +116,12 @@ The full list of parameters:
     *Parameters* object describing adjustment values needed to adapt to specific label paper
     (see labelator.py source code for description of Parameters object)
 
-Here is a call to `write_labels` with the default parameters specified (also some examples of the three formats for `labels`; note the first is a different specification than the next two):
+Here is a call to `write_labels` with the default parameters specified (also some examples of the three formats for `labels`; the first is padded with empty labels for the first two rows to make it print the same as the next two):
 
 ```python
-labels = ['a', 'b', 'c']
+labels = ['a', 'b', 'c'] + ['']*10 + \
+         ['d', 'e'] + ['']*11 + \
+         ['f', 'g', 'h', 'i']
 labels = [
     ['a', 'b', 'c'], 
     ['d', 'e'], 
