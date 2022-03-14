@@ -34,7 +34,7 @@ One can also specify the `labels` parameter as a 2D list or a dict; see [Usage](
 
 Two options:
 
-### pip (recommended)
+### [NOT SET UP YET] pip (recommended)
 
 To install, run
 
