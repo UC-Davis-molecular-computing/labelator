@@ -65,7 +65,13 @@ Then clone this GitHub repo:
 git clone https://github.com/UC-Davis-molecular-computing/labelator.git
 ```
 
-Finally, add the directory you just cloned to your PYTHONPATH.
+Finally, add the directory you just cloned to your PYTHONPATH. For example, on the Linux bash shell, add this line to your `~/.bashrc` file:
+
+```bash
+export PYTHONPATH=$PYTHONPATH:/path/to/labelator
+```
+
+where `/path/to/labelator` is the path to the labelator directory you cloned.
 
 ## Usage
 
