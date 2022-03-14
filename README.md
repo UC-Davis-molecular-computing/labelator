@@ -32,9 +32,9 @@ One can also specify the `labels` parameter as a 2D list or a dict; see [Usage](
 
 ## Installation
 
-Two options:
+<!-- Two options:
 
-### [NOT SET UP YET] pip (recommended)
+### pip (recommended)
 
 To install, run
 
@@ -43,12 +43,18 @@ pip install labelator
 ```
 
 
-### clone repo
+### clone repo -->
 
 Manually install the packages `drawSvg` and `cairosvg` via
 
 ```
 pip install drawSvg cairosvg
+```
+
+If you have a Python version prior to 3.8, also install the `typing-extensions` package:
+
+```
+pip install typing-extensions
 ```
 
 `cairosvg` is just a Python interface to the cairo library; you may also have to install Cairo manually. See https://www.cairographics.org/download/
