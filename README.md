@@ -3,7 +3,7 @@
 This is a Python package for creating PDF documents that can be printed onto circular sticky labels, this particular brand:
 https://www.flexilabels.co.uk/a4-sheet-round-labels/260-labels-per-a4-sheet-10-mm-diameter
 
-To use, give a list of labels (strings) to the function `write_labels`:
+To use, give the labels (strings) to the function `write_labels`:
 
 ```python
 from labelator import write_labels
@@ -16,11 +16,12 @@ labels = [
 write_labels('labels.pdf', labels)
 ```
 
+(One can also specify the `labels` parameter as a 2D list or a dict; see [Usage](#usage) below.)
+
 This produces a PDF file labels.pdf with 260 circles, most of which are empty, but the first three look like this (images only appear when viewed on [GitHub](https://github.com/UC-Davis-molecular-computing/labelator#readme)):
 
 ![](images/three_labels.png)
 
-One can also specify the `labels` parameter as a 2D list or a dict; see [Usage](#usage) below.
 
 
 
