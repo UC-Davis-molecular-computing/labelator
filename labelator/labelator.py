@@ -120,6 +120,10 @@ def write_labels(
         order, depending on the value of the parameter `order_by`.
         Labels can have newlines; the whole multiline string
         will end up approximately centered in the circle.
+        If a 2D list of strings, each row is described by a list,
+        e.g., `labels[2][3]` describes the label in row 2, column 3.
+        If a dict, then the keys are (row,col) pairs,
+        e.g., `labels[(2,3)]` describes the label in row 2, column 3.
     :param show_circles:
         whether to draw a circle around each label reprenseting the sticker boundary.
         Useful for ensuring label text will fit in the sticker, but typically turned off
