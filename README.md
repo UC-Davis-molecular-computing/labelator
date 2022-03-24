@@ -25,11 +25,16 @@ This produces a PDF file labels.pdf with 260 circles, most of which are empty, b
 
 
 
+
 ## Table of contents
 
 * [Installation](#installation)
 * [Usage](#usage)
 * [Printing](#printing)
+
+
+
+
 
 ## Installation
 
@@ -52,13 +57,13 @@ Manually install the packages `drawSvg` and `cairosvg` via
 pip install drawSvg cairosvg
 ```
 
+`cairosvg` is just a Python interface to the cairo library; you may also have to install Cairo manually. See https://www.cairographics.org/download/
+
 If you have a Python version prior to 3.8, also install the `typing-extensions` package:
 
 ```
 pip install typing-extensions
 ```
-
-`cairosvg` is just a Python interface to the cairo library; you may also have to install Cairo manually. See https://www.cairographics.org/download/
 
 Then clone this GitHub repo:
 
@@ -74,9 +79,13 @@ export PYTHONPATH=$PYTHONPATH:/path/to/labelator
 
 where `/path/to/labelator` is the path to the labelator directory you cloned.
 
+
+
+
+
 ## Usage
 
-The function `write_svg` has required parameters `filename` and `labels`. `filename` must end in .pdf, .svg, or .png; the appropriate file type will be written. `labels` is a list of strings. They are placed one per label in row-major order (i.e., from left to write, then top to bottom) in the 13-column, 20-row grid of label positions.
+The function `write_svg` has required parameters `filename` and `labels`. `filename` must end in .pdf, .svg, or .png; the appropriate file type will be written. `labels` describes the text to print onto the labels (see below). 
 
 The full list of parameters:
 
@@ -94,6 +103,8 @@ The full list of parameters:
     order, depending on the value of the parameter `order_by`.
     Labels can have newlines; the whole multiline string
     will end up approximately centered in the circle.
+    If a 2D list of strings, each row is described by a list, e.g., `labels[2][3]` describes the label in row 2, column 3.
+    If a dict, then the keys are (row,col) pairs, e.g., `labels[(2,3)]` describes the label in row 2, column 3.
 - *show_circles*:
     whether to draw a circle around each label reprenseting the sticker boundary.
     Useful for ensuring label text will fit in the sticker, but typically turned off
