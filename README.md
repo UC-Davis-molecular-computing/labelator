@@ -85,7 +85,7 @@ where `/path/to/labelator` is the path to the labelator directory you cloned.
 
 ## Usage
 
-The function `write_svg` has required parameters `filename` and `labels`. `filename` must end in .pdf, .svg, or .png; the appropriate file type will be written. `labels` describes the text to print onto the labels (see below). 
+The function `write_labels` has required parameters `filename` and `labels`. `filename` must end in .pdf, .svg, or .png; the appropriate file type will be written. `labels` describes the text to print onto the labels (see below). 
 
 The full list of parameters:
 
