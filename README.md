@@ -54,7 +54,7 @@ pip install labelator
 Manually install the packages `drawSvg` and `cairosvg` via
 
 ```
-pip install drawSvg cairosvg
+pip install drawsvg cairosvg
 ```
 
 `cairosvg` is just a Python interface to the cairo library; you may also have to install Cairo manually. See https://www.cairographics.org/download/
