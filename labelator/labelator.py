@@ -27,7 +27,8 @@ try:
     from typing import Literal
 except ImportError:
     from typing_extensions import Literal
-import drawSvg
+
+import drawsvg
 
 
 @dataclass
@@ -104,7 +105,7 @@ def write_labels(
         circle_stroke_width: float = 1.33,
         order_by: Optional[Literal["row", "col"]] = None,
         params: Parameters = flexilabels_260_per_a4_sheet,
-) -> drawSvg.Drawing:
+) -> drawsvg.Drawing:
     """
     Writes a file named `filename` with labels given in list `labels`.
 
@@ -151,7 +152,7 @@ def write_labels(
     :param params:
         :ref:`Parameters` object describing adjustment values needed to adapt to specific label paper
     :return:
-        the ``drawSvg.Drawing`` object used to draw the circles and text
+        the ``drawsvg.Drawing`` object used to draw the circles and text
         The object ``drawing`` can be displayed in a Jupyter notebook by letting
         ``drawing`` be the last expression in a cell,
         to render SVG. However, the appearance of this can depend on the browser and not look
@@ -164,7 +165,7 @@ def write_labels(
 
     labels = normalize_labels(labels, order_by, params)
 
-    drawing = drawSvg.Drawing(params.page_width_px, params.page_height_px, display_inline=False)
+    drawing = drawsvg.Drawing(params.page_width_px, params.page_height_px, display_inline=False)
     for (row, col), label in labels.items():
         if label.strip() != '':
             make_label(drawing, label, row, col,
@@ -176,9 +177,9 @@ def write_labels(
     if filename.lower().endswith('.pdf'):
         save_as_pdf(filename, drawing)
     elif filename.lower().endswith('.svg'):
-        drawing.saveSvg(filename)
+        drawing.save_svg(filename)
     elif filename.lower().endswith('.pdf'):
-        drawing.savePng(filename)
+        drawing.save_png(filename)
     else:
         valid_ending_str = 'must end in .pdf, .svg, or .png'
         if '.' in filename:
@@ -283,7 +284,7 @@ def y_pixels_of(row: int, params: Parameters) -> float:
 
 
 def make_label(
-        drawing: drawSvg.Drawing,
+        drawing: drawsvg.Drawing,
         label: str,
         row: int,
         col: int,
@@ -301,21 +302,21 @@ def make_label(
     y_px = y_pixels_of(row, params)
 
     if show_circles:
-        circle = drawSvg.Circle(cx=x_px, cy=y_px, r=params.radius,
+        circle = drawsvg.Circle(cx=x_px, cy=y_px, r=params.radius,
                                 fill='none',
                                 stroke_width=circle_stroke_width,
                                 stroke='black')
         drawing.append(circle)
 
         # for help calibrating vertical alignment of text; normally commented out
-        # drawing.append(drawSvg.Line(sx=x_px - params.radius, ex=x_px + params.radius,
+        # drawing.append(drawsvg.Line(sx=x_px - params.radius, ex=x_px + params.radius,
         #                             sy=y_px, ey=y_px, stroke='black'))
 
     num_lines = len(label.split('\n'))
     dy = f'{dy_text_em - ((num_lines - 1) / 2) * line_height}em'
-    text = drawSvg.Text(
+    text = drawsvg.Text(
         label,
-        fontSize=font_size,
+        font_size=font_size,
         x=x_px, y=y_px,
         dx=f'{dx_text_em}em',
         dy=dy,
@@ -328,7 +329,7 @@ def make_label(
     drawing.append(text)
 
 
-def save_as_pdf(filename: str, drawing: drawSvg.Drawing) -> None:
+def save_as_pdf(filename: str, drawing: drawsvg.Drawing) -> None:
     try:
         import cairosvg
     except ImportError:
@@ -338,8 +339,8 @@ def save_as_pdf(filename: str, drawing: drawSvg.Drawing) -> None:
         import sys
         sys.exit(-1)
     svg_filename = f'{filename}.svg'
-    drawing.saveSvg(svg_filename)
-    cairosvg.svg2pdf(url=svg_filename, write_to=filename)
+    drawing.save_svg(svg_filename)
+    cairosvg.svg2pdf(url=svg_filename, write_to=filename) # noqa
     os.remove(svg_filename)
 
 # def _test():
