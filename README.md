@@ -95,9 +95,9 @@ The full list of parameters:
     Description of labels (strings) to write.
     Can be in one of three formats:
     
-    - dict mapping (row,col) integer pairs to labels,
-    - 2D list of strings,
-    - 1D list of strings.
+    - dict mapping (row,col) integer pairs to labels (`{(0,0): 'L1', (0,1): 'L2', (1,0): 'L3', (1,1): 'L4'}`),
+    - 2D list of strings (`[['L1', 'L2'], ['L3', 'L4']]]`),
+    - 1D list of strings (`['L1', 'L2', 'L3', 'L4']`; would be equivalent to the above two on a two-column paper).
     
     If a 1D list, it will be converted to a 2D list in either row-major or column-major
     order, depending on the value of the parameter `order_by`.
