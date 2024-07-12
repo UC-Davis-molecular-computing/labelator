@@ -178,7 +178,7 @@ def write_labels(
         save_as_pdf(filename, drawing)
     elif filename.lower().endswith('.svg'):
         drawing.save_svg(filename)
-    elif filename.lower().endswith('.pdf'):
+    elif filename.lower().endswith('.png'):
         drawing.save_png(filename)
     else:
         valid_ending_str = 'must end in .pdf, .svg, or .png'
